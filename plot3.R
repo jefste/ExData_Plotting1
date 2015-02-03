@@ -18,6 +18,9 @@ time.date.2day<-strptime(time.date.2day,format='%d/%m/%Y %H:%M:%S')
 
 
 #plot 3
+#device to create PNG file
+png("plot3.png", width=480, height=480, units='px')
+
 #create scatter plot of sub metering vs. time with colored solid lines
 plot(x=time.date.2day,y=hpc.2day$Sub_metering_1,type='l',
     #labels y axis, clears label on x-axis
@@ -32,3 +35,6 @@ legend('topright',lty=c(1,1,1),
        c('Sub_metering_1','Sub_metering_2','Sub_metering_3'),
        #gives the coloring of the lines in the legend
        col=c('black',"red","blue"))
+
+#close the plot3.png device
+dev.off() 
