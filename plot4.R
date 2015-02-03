@@ -17,6 +17,9 @@ time.date.2day<-paste(hpc.2day$Date,hpc.2day$Time)
 time.date.2day<-strptime(time.date.2day,format='%d/%m/%Y %H:%M:%S')
 
 #plot 4
+#device to create PNG file
+png("plot4.png", width=480, height=480, units='px')
+
 #set graphical paramter to allow the 4 plots to be put into a 2x2 format
 par(mfrow = c(2, 2))
 
@@ -45,3 +48,6 @@ legend('topright',lty=c(1,1,1),
 #fourth plot of global reactive power vs. time
 plot(x=time.date.2day,y=hpc.2day$Global_reactive_power,type='l',
      ylab='Global_reactive_power',xlab='datetime')
+
+#close the plot4.png device
+dev.off() 
